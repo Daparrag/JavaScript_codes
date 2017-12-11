@@ -33,6 +33,15 @@ const PHONE_PRICE = 100;
 
 
 
+function print_values(in_val)
+{
+
+	amount = "$" + String( in_val );
+	console.log(amount);
+
+}
+
+
  function main()
  {
  	    do{
@@ -55,25 +64,51 @@ const PHONE_PRICE = 100;
  		var op =  prompt( "type: (1) if you want to buy a phone. (2) if you want buy an accessory. (3) pay " );
  		
  		if(op==1){
- 			if(bank_balance >= PHONE_PRICE && purchase <= threshold){
- 				bank_balance -=PHONE_PRICE;
- 				purchase += PHONE_PRICE;		
- 			}else{
- 				console.log("Your balance is insuficient for complete this operation");
+ 			if(bank_balance >= (PHONE_PRICE + TAX_RATE) && purchase <= threshold){
+ 				bank_balance -=(PHONE_PRICE + TAX_RATE);
+ 				purchase += (PHONE_PRICE + TAX_RATE);
+ 				console.log("operation success");
+ 				console.log("your new balance is :");
+ 				print_values(bank_balance);
 
+
+ 			}else{
+ 				console.log("Your balance is insufficient to complete this operation or you reach the maximum purchase ");
+ 				console.log("your balance is :");
+ 				print_values(bank_balance);
+ 				console.log("your purchase is :");
+ 				print_values(purchase);
  			}
  			
  		}
 
  		if(op==2){
- 			if(bank_balance >= ACCESSORY_PRICE && purchase <= threshold )
+ 			if(bank_balance >= (ACCESSORY_PRICE+TAX_RATE) && purchase <= threshold )
  			{
- 				bank_balance -=ACCESSORY_PRICE;
- 				purchase += ACCESSORY_PRICE;
+ 				bank_balance -=(ACCESSORY_PRICE+TAX_RATE);
+ 				purchase += (ACCESSORY_PRICE+TAX_RATE);
+ 				console.log("operation success");
+ 				console.log("your new balance is :");
+ 				print_values(bank_balance);
 
  			}else{
- 				console.log("Your balance is insuficient for complete this operation");
- 			}
+ 				console.log("Your balance is insufficient to complete this operation or you reach the maximum purchase ");
+ 				console.log("your balance is :");
+ 				print_values(bank_balance);
+ 				console.log("your purchase is :");
+ 				print_values(purchase);
+
+ 			}	
  		}
+
+ 		if(op==3){
+ 			console.log("Operation Completed ");
+ 			console.log("your balance is :");
+ 			print_values(bank_balance);
+ 			console.log("your purchase is :");
+ 			print_values(purchase);
+ 			break;
+ 		}
+
  	}
  }
