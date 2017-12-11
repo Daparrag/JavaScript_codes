@@ -64,9 +64,9 @@ function print_values(in_val)
  		var op =  prompt( "type: (1) if you want to buy a phone. (2) if you want buy an accessory. (3) pay " );
  		
  		if(op==1){
- 			if(bank_balance >= (PHONE_PRICE + TAX_RATE) && purchase <= threshold){
- 				bank_balance -=(PHONE_PRICE + TAX_RATE);
- 				purchase += (PHONE_PRICE + TAX_RATE);
+ 			if(bank_balance >= (PHONE_PRICE + (PHONE_PRICE*TAX_RATE)) && purchase <= threshold){
+ 				bank_balance -=(PHONE_PRICE + (PHONE_PRICE*TAX_RATE));
+ 				purchase += (PHONE_PRICE + (PHONE_PRICE*TAX_RATE));
  				console.log("operation success");
  				console.log("your new balance is :");
  				print_values(bank_balance);
@@ -83,10 +83,10 @@ function print_values(in_val)
  		}
 
  		if(op==2){
- 			if(bank_balance >= (ACCESSORY_PRICE+TAX_RATE) && purchase <= threshold )
+ 			if(bank_balance >= (ACCESSORY_PRICE+(ACCESSORY_PRICE*TAX_RATE)) && purchase <= threshold )
  			{
- 				bank_balance -=(ACCESSORY_PRICE+TAX_RATE);
- 				purchase += (ACCESSORY_PRICE+TAX_RATE);
+ 				bank_balance -=(ACCESSORY_PRICE+(ACCESSORY_PRICE*TAX_RATE));
+ 				purchase += (ACCESSORY_PRICE+(ACCESSORY_PRICE*TAX_RATE));
  				console.log("operation success");
  				console.log("your new balance is :");
  				print_values(bank_balance);
